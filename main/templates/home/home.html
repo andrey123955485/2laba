@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>TheWatcher</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Главное</a></li>
+        <li><a href="/contacts/">Контакты</a></li>
+        <li><a href="/about/">О нас</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>Мы следим за вами</h1>
+
+    {% if home_image %}
+    <div class="hero">
+      <img src="{{ home_image.image.url }}" alt="{{ home_image.description }}">
+      <p>{{ home_image.description }}</p>
+    </div>
+    {% else %}
+    <p>Изображения не найдены.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

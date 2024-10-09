@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>Контакты</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Главное</a></li>
+        <li><a href="/contacts/">Контакты</a></li>
+        <li><a href="/about/">О нас</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>Контакты</h1>
+    <ul>
+      {% for contact in contacts %}
+        <li>{{ contact.phone_number }} - {{ contact.email }}</li>
+      {% empty %}
+        <li>Нет контактов.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
